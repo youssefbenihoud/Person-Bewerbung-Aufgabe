@@ -68,7 +68,6 @@ public class Person {
     public String getGParents(){
         List<Person> gParents = PersonService.findRelationship(this, ERole.GRANDPARENT);
         if (gParents == null || gParents.isEmpty())
-
             return "";
         return gParents.stream().
                 map(Person::getName).
