@@ -31,7 +31,7 @@ public class PersonService {
 
     /**
      * Method to link multiple Parents
-     * with potentially multiple Children
+     * with potentially multiple Children ( at least one child )
      * with each other
      * @param parents
      * @param children
@@ -75,14 +75,14 @@ public class PersonService {
                        findRelationship(fp, ERole.CHILD).stream()) // recursive method that find the list of Children of Children of @param person.
                        .collect(Collectors.toList()); // save them on temporary list
            }
-           foundPersons = tmpPersons; // found persons are now the grandparents ( no more parents )
+           foundPersons = tmpPersons; // found persons are now the grandchildren ( no more children )
        }else if (role.equals(ERole.GRANDPARENT)){
            for(Person fp: foundPersons){ // looping the found persons in the first loop, foundPersons are parents of @param person.
                tmpPersons = Stream.concat(tmpPersons.stream(),
                        findRelationship(fp, ERole.PARENT).stream())  // recursive method that find the list of Parents of Parents of @param person.
                        .collect(Collectors.toList()); // save them on temporary list
            }
-           foundPersons = tmpPersons; // found persons are now the grandchildren ( no more children )
+           foundPersons = tmpPersons; // found persons are now the grandparents ( no more parents )
        }
 
        return foundPersons;
@@ -122,8 +122,8 @@ public class PersonService {
 
 
     /**
-     * Method to sort the given List of Persons by Age
-     * Then by Height ( if ages are equal )
+     * Method to sort the given List of Persons by Height
+     * Then by Age ( if Heights are equal )
      * in the given Asc
      * @param persons
      * @param asc: True is Ascending, False is Descending
