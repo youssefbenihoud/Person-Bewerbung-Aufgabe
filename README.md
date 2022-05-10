@@ -15,8 +15,8 @@
 <br>
 <h1> Task 2 </h1>
 <h3>The time invested: 4 Hours + 6 Hours extra bonus to make the task 2 more challenging </h3>
-<h2>The console receives an input in the following form </h2>
+<h2>The console can receive an input in the following form </h2>
 <h3>31.07.1999 Boris Brand 187cm 04.06.1981 Lena Lange 169cm 09.12.1987 Thomas Brecht 179cm 12.03.1982 Laura Müller 179cm</h3>
 <p> The Persons must only be printed of their name not shorter than 3 Chars and no longer than 12 Chars
   <br> and if their height not smaller than 150cm or taller than 200cm <br> and if their age not older than 100 years or younger than 18 years 
-  <br><br> <strong>Bonus</strong>: The console can read input in different forms of dates, in different orders, in different names (whether are 2 names or more, or if they have special chars -e.g Robert J. White -) </p>
+  <br><br> <strong>Bonus</strong>: The console can receive an input in different form, orders, dates in different forms and in different orders, names in different forms ( whether are 2 names or more, or if they have special chars -e.g Robert J. White- ) </p>
