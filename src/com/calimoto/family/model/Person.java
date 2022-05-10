@@ -56,43 +56,31 @@ public class Person {
 
 
     public String getParents(){
-        List<Person> parents = PersonService.findRelationship(this, ERole.PARENT);
-        if ( parents == null || parents.isEmpty())
-            return "";
-        return parents.stream().
-                map(Person::getName).
-                collect(Collectors.joining(", "));
+        return PersonService.printAllRelationships(this,ERole.PARENT.getLevel());
     }
 
 
     public String getGParents(){
-        List<Person> gParents = PersonService.findRelationship(this, ERole.GRANDPARENT);
-        if (gParents == null || gParents.isEmpty())
-            return "";
-        return gParents.stream().
-                map(Person::getName).
-                collect(Collectors.joining(", "));
+        return PersonService.printAllRelationships(this,ERole.GRANDPARENT.getLevel());
+
     }
 
     public String getChildren(){
-        List<Person> children = PersonService.findRelationship(this,ERole.CHILD);
-        if (children == null || children.isEmpty())
-            return "";
-        return children.stream().
-                map(Person::getName).
-                collect(Collectors.joining(", "));
+        return PersonService.printAllRelationships(this,ERole.CHILD.getLevel());
     }
 
     public String getGChildren(){
-        List<Person> gChildren = PersonService.findRelationship(this,ERole.GRANDCHILD);
-        if(gChildren == null || gChildren.isEmpty())
-            return "";
-        return gChildren.stream().
-                map(Person::getName).
-                collect(Collectors.joining(", "));
+        return PersonService.printAllRelationships(this,ERole.GRANDCHILD.getLevel());
+
     }
 
 
+    public String getNameAndAge(){
+        return name
+                + " ("
+                +getAge()
+                +") ";
+    }
     public LocalDate getBirthday() {
         return birthday;
     }
@@ -103,11 +91,11 @@ public class Person {
                 + " "
                 + name + " "
                 + height+ "cm "
-                + getAge() + " y.o \n"
-                +(!getGParents().isEmpty()? "My Grandparents are:" + getGParents() +"; \n": "")
-                +(!getParents().isEmpty()? "My Parents are:" + getParents() +"; \n" : "")
-                +(!getChildren().isEmpty()? "My Children are:" +  getChildren() +"; \n" : "")
-                +(!getGChildren().isEmpty()? "My Grandchildren are:" +  getGChildren() +"; \n": "")
+                +"("+getAge()+") \n"
+                +getGParents()
+                +getParents()
+                +getGChildren()
+                +getChildren()
                 ;
     }
 

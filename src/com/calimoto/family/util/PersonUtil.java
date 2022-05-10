@@ -137,6 +137,12 @@ public class PersonUtil {
      */
     public static void generateFamily(){
 
+        Person ggFather1 = new Person("Noa Heim", 170,LocalDate.of(1910,2,1));
+        Person ggMother1 = new Person("Selena Heim", 155,LocalDate.of(1905,1,2));
+
+        Person ggFather2 = new Person("Martin Keil", 170,LocalDate.of(1911,3,4));
+        Person ggMother2 = new Person("Anna Keil", 155,LocalDate.of(1904,2,3));
+
         Person gFather1 = new Person("David Heim", 170,LocalDate.of(1950,1,1));
         Person gMother1 = new Person("Marie Heim", 165,LocalDate.of(1951,2,2));
 
@@ -148,6 +154,14 @@ public class PersonUtil {
 
         Person c1 = new Person("Sara Heim", 159, LocalDate.of(1990,7,7));
         Person c2 = new Person("Luisa Heim", 158, LocalDate.of(1991,8,8));
+
+        List<Person> ggp1 = new ArrayList<>(); // optional
+        ggp1.add(ggFather1);
+        ggp1.add(ggMother1);
+
+        List<Person> ggp2 = new ArrayList<>(); // optional
+        ggp2.add(ggFather2);
+        ggp2.add(ggMother2);
 
         List<Person> gp1 = new ArrayList<>();
         gp1.add(gFather1);
@@ -161,12 +175,16 @@ public class PersonUtil {
         p1.add(father);
         p1.add(mother);
 
+        PersonService.buildFamily(ggp1, gFather1); //optional
+        PersonService.buildFamily(ggp2, gMother1); //optional
+
         PersonService.buildFamily(gp1,father);
         PersonService.buildFamily(gp2,mother);
+
         PersonService.buildFamily(p1,c1,c2);
 
 
-        System.out.println(mother.toString());
+        System.out.println(c1.toString());
     }
 
 }
