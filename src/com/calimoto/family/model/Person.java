@@ -1,7 +1,6 @@
 package com.calimoto.family.model;
 
 
-
 import com.calimoto.family.enums.ERole;
 import com.calimoto.family.service.PersonService;
 
@@ -21,7 +20,6 @@ public class Person {
     private List<Relationship> relationships;
 
 
-
     public Person() {
     }
 
@@ -32,14 +30,13 @@ public class Person {
     }
 
 
-
-    public int getAge(){
+    public int getAge() {
         LocalDate now = LocalDate.now();
         return (int) ChronoUnit.YEARS.between(birthday, now);
     }
 
     public String getName() {
-        if( name == null )
+        if (name == null)
             return "";
         return name;
     }
@@ -49,56 +46,55 @@ public class Person {
     }
 
     public List<Relationship> getRelationships() {
-        if(relationships == null)
+        if (relationships == null)
             relationships = new ArrayList<>();
         return relationships;
     }
 
 
-    public String getParents(){
-        return PersonService.printAllRelationships(this,ERole.PARENT.getLevel());
+    public String getParents() {
+        return PersonService.printAllRelationships(this, ERole.PARENT.getLevel());
     }
 
 
-    public String getGParents(){
-        return PersonService.printAllRelationships(this,ERole.GRANDPARENT.getLevel());
+    public String getGParents() {
+        return PersonService.printAllRelationships(this, ERole.GRANDPARENT.getLevel());
 
     }
 
-    public String getChildren(){
-        return PersonService.printAllRelationships(this,ERole.CHILD.getLevel());
+    public String getChildren() {
+        return PersonService.printAllRelationships(this, ERole.CHILD.getLevel());
     }
 
-    public String getGChildren(){
-        return PersonService.printAllRelationships(this,ERole.GRANDCHILD.getLevel());
+    public String getGChildren() {
+        return PersonService.printAllRelationships(this, ERole.GRANDCHILD.getLevel());
 
     }
 
 
-    public String getNameAndAge(){
+    public String getInfo() {
         return name
-                + " ("
-                +getAge()
-                +") ";
+                +" (" + getAge() + ")"
+                +" ("+ getHeight() +"cm) ";
     }
+
     public LocalDate getBirthday() {
         return birthday;
     }
 
     @Override
     public String toString() {
-        return  birthday.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))
+        return birthday.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))
                 + " "
                 + name + " "
-                + height+ "cm "
-                +"("+getAge()+") \n"
-                +getGParents()
-                +getParents()
-                +getGChildren()
-                +getChildren()
+                + height + "cm "
+                + "(" + getAge() + ") \n"
+                + getGParents()
+                + getParents()
+                + getGChildren()
+                + getChildren()
                 ;
     }
-
 
 
     public void setName(String name) {

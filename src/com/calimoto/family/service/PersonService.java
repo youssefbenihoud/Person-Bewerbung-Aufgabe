@@ -109,7 +109,7 @@ public class PersonService {
                 result.append("My Children are: ");
             result.append(relationship
                     .stream()
-                    .map(Person::getNameAndAge)
+                    .map(Person::getInfo)
                     .collect(Collectors.joining(", ")))
                     .append(" \n");
         }
