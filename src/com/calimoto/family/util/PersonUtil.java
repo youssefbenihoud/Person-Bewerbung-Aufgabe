@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PersonUtil {
 
@@ -46,8 +47,19 @@ public class PersonUtil {
         PersonService.buildFamily(gp2, mother);
         PersonService.buildFamily(p1, c1, c2);
 
+        List<Person> family = new ArrayList<>();
+        family.addAll(gp1);
+        family.addAll(gp2);
+        family.addAll(p1);
+        family.add(c1);
+        family.add(c2);
 
-        System.out.println(mother.toString());
+
+        for(Person p: family){
+            System.out.println("*****");
+            System.out.println(p.toString());
+            System.out.println("*****");
+        }
     }
 
 

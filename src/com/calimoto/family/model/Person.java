@@ -86,9 +86,8 @@ public class Person {
     public String toString() {
         return birthday.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"))
                 + " "
-                + name + " "
-                + height + "cm "
-                + "(" + getAge() + ") \n"
+                + getInfo()
+                + "\n"
                 + getGParents()
                 + getParents()
                 + getGChildren()
