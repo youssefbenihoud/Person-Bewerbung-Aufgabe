@@ -121,7 +121,7 @@ public class PersonUtil {
 
             PersonService.sortByHeightThenAge(persons, asc);
 
-            result = persons.stream().map(Person::getName)
+            result = persons.stream().map(Person::getInfo)
                     .collect(Collectors.joining(", "));
         }
         return result;

@@ -11,9 +11,6 @@ public class Relationship {
     private Person child;
 
 
-    public Relationship() {
-
-    }
 
     public Relationship(Person parent, Person child) {
         this.parent = parent;
